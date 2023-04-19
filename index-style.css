@@ -1,0 +1,266 @@
+:root {
+    background-color: #191919;
+    color: white;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+
+main {
+    padding-top: 8%;
+    padding-left: 5%;
+    padding-bottom: 8%;
+    padding-right: 5%;
+    display: block;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+img {
+    width: 400px;
+    height: auto;
+    justify-content: center;
+    margin: 20px auto;
+    display: block;
+}
+
+main p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+main p b {
+    color: bisque;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #211f1f;
+    box-shadow: 0 5px 10px rgb(0, 0, 0, -1);
+    padding: 0px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+header .logo {
+    font-weight: bolder;
+    font-size: 25px;
+    color: bisque;
+}
+
+header .menu ul {
+    list-style: none;
+}
+
+header .menu ul li {
+    position: relative;
+    float: left;
+}
+
+header .menu ul li a {
+    font-size: 20px;
+    padding: 20px;
+    color: bisque;
+    display: block;
+}
+
+header .menu ul li a:hover {
+    background: #413737;
+    color: burlywood;
+}
+
+header .menu ul li ul {
+    position: absolute;
+    left: 0;
+    width: 250px;
+    background: #211f1f;
+    display: none;
+    overflow-y: scroll;
+    height: 20em;
+}
+
+h2 {
+    color: bisque;;
+}
+
+footer {
+    color: bisque;;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+*::-webkit-scrollbar {   
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #211f1f;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: bisque;
+}    
+
+header .menu ul li ul li {
+    width: 100%;
+    border-top: 1px solid black;
+}
+
+header .menu ul li ul li ul {
+    left: 0;
+    top: 0px;
+}
+
+header .menu ul li:hover > ul {
+    display: initial;
+}
+
+#menu-bar {
+    display: none;
+}
+
+header label {
+    font-size: 20px;
+    color: bisque;
+    cursor: pointer;
+    display: none;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.box {
+    font-size: 20px;
+    background-color: #191919;
+    color: bisque;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    padding: 2%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.box img {
+    transition: all 3s ease-out;
+    filter: grayscale(100%);
+    box-shadow: 3px 3px 14px white;
+}
+
+.box img:hover {
+    border: 5px solid;
+    border-image-source: linear-gradient(to right, white, gray, black);
+    border-image-slice: 1;
+    animation: border-color 2s ease-out 1.5s;
+    filter: grayscale(0%);
+}
+
+@keyframes border-color {
+    0% {
+        border-color: white;
+    }
+    50% {
+        border-color: gray;
+    }
+    100% {
+        border-color: black;
+    }
+}
+
+#container img {
+    padding: 0;
+}
+
+@media(max-width: 1100px) {
+    header {
+        padding-bottom: 20px;
+        padding-top: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    #container {
+        display: block;
+    }
+
+    header label {
+        display: initial;
+    }
+
+    header .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #211f1f;
+        border-top: 1px solid black;
+        display: none;
+        overflow-y: scroll;
+        height: 20em;
+    }
+
+    header .menu ul li {
+        width: 100%;
+    }
+
+    header .menu ul li ul {
+        position: relative;
+        width: 100%;
+    }
+
+    #menu-bar:checked ~ .menu {
+        display: initial;
+    }
+}
+
+ul li:before, ul li:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+ul li:before {
+    left: 0;
+    border-left: 5px solid transparent;
+}
+
+ul li:after {
+    right: 0;
+    border-right: 5px solid transparent;
+}
+
+ul li:hover:before, ul li:hover:after {
+    width: 50%;
+    transition-delay: 0.2s;
+}
+
+ul li:hover:before {
+    border-left-color: bisque;
+}
+
+ul li:hover:after {
+    border-right-color: bisque;
+}
+  
