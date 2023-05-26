@@ -300,31 +300,77 @@ ul li:hover:after {
   padding: 10px;
 }
 
+form {
+  width: 70%;
+  margin: auto;
+}
+
+input[type="text"], input[type="submit"] {
+  background-color: #191919;
+  color: bisque;
+  border-color: bisque;
+}
+
+p > a {
+  color: bisque;
+}
+
+fieldset > p > label {
+  color: bisque
+}
+
+fieldset > h4 {
+  color:bisque
+}
+
+fieldset > legend {
+  color: bisque;
+}
+
+fieldset {
+  margin-bottom: 20px;
+}
+
 /*
 
 fișier separat pentru codul JavaScript
 
 Vreau sa fac un quizz despre the beatles:
 *validarea datelor dintr-un formular folosind expresii regulate
+  *validare pentru Nume: nume + prenume, lungime maxima 20 de caractere fiecare
 *inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
-
-Pune piesa in albumul corect::
-*manipularea DOM-ului (selectare după id, tag, clasă, folosind selectori CSS)
-*crearea și stergerea de elemente HTML
+  *alege anul in care - range
+  *o grila (la usor e radio, la greu de checkbox)
+  *date etc
+*folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
+  *retin cele mai bune N scori si numele celor care le-au trimis
+*folosirea a cel puțin unei metode din clasele: Math, Array, String, Date:
+  *Math - random
+  *Date - cat de aproape / departe esti de raspunsul corect
+  *Array - sort pentru ca trebuie sa ordonezi albumele
+  *String - slice, find - pentru adresare doar cu prenumele
 *modificarea stilului unui element sau al unui grup de elemente
-*folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
-*folosirea proprietăților classList, target sau currentTarget (adaug intr-o listă, dar îi adaug și un class ca sa pot sa vad cate sunt corecte mai usor la final)
+  *fundalul se schimba in functide de difucultate (usor / greu)
 
+Pune piesa in albumul corect (in cadrul quizz-ului):
+*crearea și stergerea de elemente HTML
+  *cand dau un guess, creez un nou nod intr-un div, la final, le sterg
+*manipularea DOM-ului (selectare după id, tag, clasă, folosind selectori CSS) 
+  *selectie dupa clasa verificare cate sunt corecte
+*folosirea proprietăților classList, target sau currentTarget
+  *adaug intr-o listă, dar îi adaug și un class ca sa pot sa vad cate sunt corecte mai usor la final
+*folosirea și modificarea evenimentelor generate de mouse si tastatură
+  *dai click pe o piesa, dupa care apesi 1, 2, 3, 4 ca sa o muti (1 o muta in primul, 2 in al doilea, etc)
+  *folosirea metodei stopPropagation
+*schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
+  *cand pun o piesa intr-o categorie, se lumeineaza cu o culoare random textul
 
-Vreau sa pot modifica tema paginii::
-*folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
+ Va trebui sa fac si un joc maze-like:
+*folosirea setTimeout sau setInterval:
+  *pentru block-uri de delay
+*modificare de proprietăți
+  *schimb tipul block-ului (block e o clasa)
 
-
-folosirea și modificarea evenimentelor generate de mouse si tastatură
-modificare de proprietăți
-folosirea setTimeout sau setInterval
-folosirea a cel puțin unei metode din clasele: Math, Array, String, Date
-schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
-folosirea metodelor getComputedStyle și stopPropagation
+folosirea metodei getComputedStyle
 
 */

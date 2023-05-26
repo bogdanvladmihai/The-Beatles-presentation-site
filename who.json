@@ -1,0 +1,275 @@
+[
+  {
+    "q": "Cine a fost membru fondator al trupei The Beatles?",
+    "c": "John Lennon",
+    "w1": "Paul McCartney",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost principalul textier al trupei The Beatles?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a compus și a cântat soloul de chitară în cântecul 'While My Guitar Gently Weeps'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat cântecul 'Octopus's Garden'?",
+    "c": "Ringo Starr",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "George Harrison"
+  },
+  {
+    "q": "Cine a fost poreclit 'Quiet Beatle'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a cântat la tobe în trupa The Beatles?",
+    "c": "Ringo Starr",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "George Harrison"
+  },
+  {
+    "q": "Cine a compus și a cântat cântecul 'Blackbird'?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost ultimul membru adăugat în trupa The Beatles?",
+    "c": "Ringo Starr",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "George Harrison"
+  },
+  {
+    "q": "Cine a compus și a cântat cântecul 'Something'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost cunoscut sub numele de 'Macca'?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat cântecul 'Imagine'?",
+    "c": "John Lennon",
+    "w1": "Paul McCartney",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a compus și a cântat cântecul 'Here Comes the Sun'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost cel mai tânăr membru al trupei The Beatles?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat soloul de chitară în cântecul 'While My Guitar Gently Weeps'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat cântecul 'Hey Jude'?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost principalul vocalist al trupei The Beatles?",
+    "c": "John Lennon",
+    "w1": "Paul McCartney",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a compus și a cântat cântecul 'Here, There and Everywhere'?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat cântecul 'While My Guitar Gently Weeps'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost ultimul membru care a părăsit oficial trupa The Beatles?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a compus și a cântat soloul de chitară în cântecul 'While My Guitar Gently Weeps'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  }, 
+  {
+    "q": "Cine a fost principalul textier al trupei The Beatles?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a compus și a cântat soloul de chitară în cântecul 'While My Guitar Gently Weeps'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat cântecul 'Octopus's Garden'?",
+    "c": "Ringo Starr",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "George Harrison"
+  },
+  {
+    "q": "Cine a fost poreclit 'Quiet Beatle'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a cântat la tobe în trupa The Beatles?",
+    "c": "Ringo Starr",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "George Harrison"
+  },
+  {
+    "q": "Cine a compus și a cântat cântecul 'Blackbird'?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost ultimul membru adăugat în trupa The Beatles?",
+    "c": "Ringo Starr",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "George Harrison"
+  },
+  {
+    "q": "Cine a compus și a cântat cântecul 'Something'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost cunoscut sub numele de 'Macca'?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat cântecul 'Imagine'?",
+    "c": "John Lennon",
+    "w1": "Paul McCartney",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a compus și a cântat cântecul 'Here Comes the Sun'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost cel mai tânăr membru al trupei The Beatles?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat soloul de chitară în cântecul 'While My Guitar Gently Weeps'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat cântecul 'Hey Jude'?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost principalul vocalist al trupei The Beatles?",
+    "c": "John Lennon",
+    "w1": "Paul McCartney",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a compus și a cântat cântecul 'Here, There and Everywhere'?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a scris și a cântat cântecul 'While My Guitar Gently Weeps'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a fost ultimul membru care a părăsit oficial trupa The Beatles?",
+    "c": "Paul McCartney",
+    "w1": "John Lennon",
+    "w2": "George Harrison",
+    "w3": "Ringo Starr"
+  },
+  {
+    "q": "Cine a compus și a cântat soloul de chitară în cântecul 'While My Guitar Gently Weeps'?",
+    "c": "George Harrison",
+    "w1": "John Lennon",
+    "w2": "Paul McCartney",
+    "w3": "Ringo Starr"
+  }
+]
