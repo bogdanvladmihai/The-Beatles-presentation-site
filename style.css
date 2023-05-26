@@ -293,4 +293,38 @@ ul li:hover:before {
 ul li:hover:after {
     border-right-color: bisque;
 }
-  
+
+#cent {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+/*
+
+fișier separat pentru codul JavaScript
+
+Vreau sa fac un quizz despre the beatles:
+*validarea datelor dintr-un formular folosind expresii regulate
+*inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
+
+Pune piesa in albumul corect::
+*manipularea DOM-ului (selectare după id, tag, clasă, folosind selectori CSS)
+*crearea și stergerea de elemente HTML
+*modificarea stilului unui element sau al unui grup de elemente
+*folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
+*folosirea proprietăților classList, target sau currentTarget (adaug intr-o listă, dar îi adaug și un class ca sa pot sa vad cate sunt corecte mai usor la final)
+
+
+Vreau sa pot modifica tema paginii::
+*folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
+
+
+folosirea și modificarea evenimentelor generate de mouse si tastatură
+modificare de proprietăți
+folosirea setTimeout sau setInterval
+folosirea a cel puțin unei metode din clasele: Math, Array, String, Date
+schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
+folosirea metodelor getComputedStyle și stopPropagation
+
+*/
