@@ -93,6 +93,15 @@ header .menu ul li ul {
     height: 20em;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  background-color: #211f1f;
+  color: burlywood;
+}
+
 h2 {
     color: bisque;;
 }
@@ -184,6 +193,11 @@ header label {
     100% {
         border-color: black;
     }
+}
+
+select {
+  background-color: #191919;
+  color: bisque;
 }
 
 .animation {
@@ -331,46 +345,34 @@ fieldset {
   margin-bottom: 20px;
 }
 
-/*
+table {
+  margin: 0 auto;
+  width: 80%; 
+  border-collapse: collapse;
+  text-align: center; 
+}
 
-fișier separat pentru codul JavaScript
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+  width: 20%; 
+  color: bisque; 
+}
 
-Vreau sa fac un quizz despre the beatles:
-*validarea datelor dintr-un formular folosind expresii regulate
-  *validare pentru Nume: nume + prenume, lungime maxima 20 de caractere fiecare
-*inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
-  *alege anul in care - range
-  *o grila (la usor e radio, la greu de checkbox)
-  *date etc
-*folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
-  *retin cele mai bune N scori si numele celor care le-au trimis
-*folosirea a cel puțin unei metode din clasele: Math, Array, String, Date:
-  *Math - random
-  *Date - cat de aproape / departe esti de raspunsul corect
-  *Array - sort pentru ca trebuie sa ordonezi albumele
-  *String - slice, find - pentru adresare doar cu prenumele
-*modificarea stilului unui element sau al unui grup de elemente
-  *fundalul se schimba in functide de difucultate (usor / greu)
+th {
+  background-color: 191919; 
+  font-weight: #413737;
+}
 
-Pune piesa in albumul corect (in cadrul quizz-ului):
-*crearea și stergerea de elemente HTML
-  *cand dau un guess, creez un nou nod intr-un div, la final, le sterg
-*manipularea DOM-ului (selectare după id, tag, clasă, folosind selectori CSS) 
-  *selectie dupa clasa verificare cate sunt corecte
-*folosirea proprietăților classList, target sau currentTarget
-  *adaug intr-o listă, dar îi adaug și un class ca sa pot sa vad cate sunt corecte mai usor la final
-*folosirea și modificarea evenimentelor generate de mouse si tastatură
-  *dai click pe o piesa, dupa care apesi 1, 2, 3, 4 ca sa o muti (1 o muta in primul, 2 in al doilea, etc)
-  *folosirea metodei stopPropagation
-*schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
-  *cand pun o piesa intr-o categorie, se lumeineaza cu o culoare random textul
-
- Va trebui sa fac si un joc maze-like:
-*folosirea setTimeout sau setInterval:
-  *pentru block-uri de delay
-*modificare de proprietăți
-  *schimb tipul block-ului (block e o clasa)
-
-folosirea metodei getComputedStyle
-
-*/
+.popup {
+  position: fixed;
+  color: bisque;
+  top: 90%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  background-color: #413737;
+  padding: 10px;
+  border: 5% dashed bisque;
+  font-size: 14px;
+  max-width: 300px;
+}

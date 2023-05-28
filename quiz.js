@@ -25,6 +25,8 @@ function createQuiz(firstName) {
     br.remove();
   }
   form = document.createElement("form");
+  form.target = "_self";
+  form.method = "post";
   form.id = "quiz";
   for (let i = 0; i < 2; i++) {
     brLine = document.createElement("br");
@@ -36,7 +38,7 @@ function createQuiz(firstName) {
   createFiled("general", "Întrebări generale despre trupă", "Alegeți răspunsul corect!");
   createFiled("when", "Întrebări despre când s-au întrâmplat evenimente din istoria trupei", "Trebuie să fiți cât mai aproape de anul corect!");
   createFiled("who", "Întrebări despre cine e autorul unei fapte / piese", "Alegeți răspunsul corect!");
-  createFiled("album", "Alegeți albumul din care face parte fiecare piesă", "Apăsați cu mouse-ul pe fiecare piesă, iar apoi apăsați numărul corespunzător fiecărui album.");
+  createFiled("album", "Alegeți albumul din care face parte fiecare piesă", "Selectați albumul din care face parte fiecare piesă.");
 
   button = document.createElement("input");
   button.type = "submit";
@@ -177,8 +179,12 @@ function generateQueryOfFirstType(target, idName, shuffle) {
   }
 
   query = document.createElement("fieldset");
-  query.id = idName + "_query_" + pos;
   text = document.createElement("legend");
+  if (document.getElementById(idName + "_query" + pos.toString())) {
+    generateQueryOfFirstType(target, idName, shuffle);
+    return;
+  } 
+  query.id = idName + "_query" + pos.toString();
   text.innerHTML = copy.q;
   query.appendChild(text);
   for (let i = 0; i < 4; i++) {
@@ -186,6 +192,7 @@ function generateQueryOfFirstType(target, idName, shuffle) {
     input = document.createElement("input");
     input.type = "radio";
     input.name = query.id;
+
     label = document.createElement("label");
     if (i == 0) {
       label.innerHTML = copy.c;
@@ -196,23 +203,272 @@ function generateQueryOfFirstType(target, idName, shuffle) {
     } else {
       label.innerHTML = copy.w3;
     }
+
+    if (label.innerHTML == tmp.c) {
+      input.classList.add("corect" + idName);
+    }
     p.appendChild(input);
     p.appendChild(label);
     query.appendChild(p);
   }
+
   document.getElementById(idName + "id").appendChild(query);
 }
 
-function generateQueryOfSecondType(target) {
+function generateQueryOfSecondType(target, idName, index) {
+  let pos = Math.floor(Math.random() * target.length);
   
+  query = document.createElement("fieldset");
+  text = document.createElement("legend");
+  text.innerHTML = target[pos].q;
+  query.appendChild(text);
+  label = document.createElement("label");
+  label.for = idName + query.toString();
+  label.innerHTML = "Alegeți anul: ";
+  input = document.createElement("input");
+  input.type = "number";
+  input.name = idName + pos.toString();
+  input.id = idName + "_query" + index.toString();
+
+  input.style.backgroundColor = "#413737";
+  input.style.color = "bisque";
+
+  p = document.createElement("p");
+  query.appendChild(p);
+  p.appendChild(label);
+  p.appendChild(input);
+
+  input.classList.add(target[pos].c);
+
+  document.getElementById(idName + "id").appendChild(query);
+}
+
+function generateQueryOfThirdType(index) {
+  root = document.getElementById("albumid");
+  let albumPos = Math.floor(Math.random() * albums.length);
+  let songPos = Math.floor(Math.random() * albums[albumPos].songs.length);
+  p = document.createElement("p");
+  label = document.createElement("label");
+  label.for = index + toString() + "album_query";
+  label.innerHTML = albums[albumPos].songs[songPos] + "\n";
+  select = document.createElement("select");
+  select.name = label.for;
+  cls = albums[albumPos].album.replace(/ /g, '');
+  select.classList.add(cls);
+  for (let i = 0; i < albums.length; i++) {
+    option = document.createElement("option");
+    option.innerHTML = albums[i].album;
+    option.classList.add("optstyle");
+    select.appendChild(option);
+  }
+  p.appendChild(label);
+  p.appendChild(select);
+  root.appendChild(p);
+}
+
+function genPopUp(standings, i) {
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  distr = "[";
+  for (let j = 0; j < standings[i][2].length; j++) {
+    if (j > 0) {
+      distr += ", ";
+    }
+    distr += standings[i][2][j];
+  }
+  distr += "]";
+  let text = standings[i][0] + " a făcut " + standings[i][1] + " puncte " + distr + " în data de " + standings[i][5] + "/" + standings[i][4] + "/" + standings[i][3] + " jucând " + standings[i][6];
+  popup.textContent = text;
+  document.body.appendChild(popup);
+  setTimeout(() => {
+    popup.remove();
+  }, 5000);
+}
+
+function displayStandings(pos) {
+  standings = JSON.parse(localStorage.getItem("best"));
+
+  filed = document.createElement("fieldset");
+  legend = document.createElement("legend");
+  legend.innerHTML = "Cele mai bune rezultate";
+  filed.appendChild(legend);
+
+  table =  document.createElement("table");
+  table.id = "standings";
+  th = document.createElement("thead");
+  table.appendChild(th);
+  head = document.createElement("tr");
+  thName = document.createElement("th");
+  thName.innerHTML = "Nume";
+  thScore = document.createElement("th");
+  thScore.innerHTML = "Scor";
+  thData = document.createElement("th");
+  thData.innerHTML = "Anul";
+  head.appendChild(thName);
+  head.appendChild(thScore);
+  head.appendChild(thData);
+  th.appendChild(head);
+  for (let i = 0; i < standings.length; i++) {
+    let line = document.createElement("tr");
+    let name = document.createElement("td");
+    name.innerHTML = standings[i][0];
+    line.appendChild(name);
+    let score = document.createElement("td");
+    score.innerHTML = standings[i][1].toString();
+    line.appendChild(score);
+    let year = document.createElement("td");
+    year.innerHTML = standings[i][3];
+    line.appendChild(year);
+
+    if (i == pos) {
+      line.style.fontWeight= "bold";
+    }
+    line.addEventListener("click", function() {
+      genPopUp(standings, i);
+    });
+    setTimeout(function() {
+      table.appendChild(line);
+    }, i * 1000);
+  }
+
+  document.addEventListener('keydown', function(event) {
+    switch (event.key) {
+      case "1":
+        genPopUp(standings, 1);
+        break;
+      case "2":
+        genPopUp(standings, 2);
+        break;
+      case "3":
+        genPopUp(standings, 3);
+        break;
+      case "4":
+        genPopUp(standings, 4);
+        break;
+      case "5":
+        genPopUp(standings, 5);
+        break;
+      default:
+        break;
+    }
+  });
+
+  filed.appendChild(table);
+  document.getElementById("results").appendChild(filed);
+}
+
+function updateStorage(a, b, c, d, fullName, mode) {
+  let standings;
+  if (localStorage.getItem("best")) {
+    standings = JSON.parse(localStorage.getItem("best"));
+  } else {
+    standings = []
+    for (let i = 0; i < 5; i++) {
+      let NAArray = ["NA", 0, [0, 0, 0, 0], "2003", "3", "19", "NA"];
+      standings.push(NAArray);
+    }
+  }
+
+  let score = a + b + c + d, change = -1;
+  for (let i = 0; i < standings.length; i++) {
+    if (score >= standings[i][1]) {
+      change = i;
+      break;
+    }
+  }
+  if (change != -1) {
+    for (let i = standings.length - 1; i > change; i--) {
+      standings[i] = standings[i - 1];
+    }
+    let currDate = new Date();
+    let newScoreArr = [fullName, score, [a, b, c, d], currDate.getFullYear(), parseInt(currDate.getMonth() + 1).toString(), currDate.getDate(), mode];
+    standings[change] = newScoreArr;
+  }
+
+  localStorage.setItem("best", JSON.stringify(standings));
+  return change;
+}
+
+function showResults(a, b, c, d, mode) {
+  let currScore = a + b + c + d;
+
+  root = document.querySelectorAll("main")[0];
+  root.appendChild(document.createElement("br"));
+  root.appendChild(document.createElement("br"));
+
+  f = document.createElement("form");
+  f.id = "results";
+  field = document.createElement("fieldset");
+  legend = document.createElement("legend");
+  legend.innerHTML = "Rezultate";
+  f.appendChild(field);
+  field.appendChild(legend);
+
+  currResult = document.createElement("fieldset");
+  currLegend = document.createElement("legend");
+  currLegend.innerHTML = "Rezultatul tău";
+  currResult.appendChild(currLegend);
+  yourScoreText = document.createElement("h4");
+  yourScoreText.innerHTML = "Scorul tău este " + currScore.toString() + "! Distribuția scorului este: întrebări generale " + a.toString() + " puncte, întrebări de ghicit anul " + b.toString() + "puncte, întrebări despre cine a făcut o acțiune " + c.toString() + " puncte și întrebări despre albumul pieselor " + d.toString() + " puncte!";
+  currResult.appendChild(yourScoreText);
+  field.appendChild(currResult);
+
+  root.appendChild(f);
+  let pos = updateStorage(a, b, c, d, document.getElementById("name").value, mode);
+  displayStandings(pos);
+}
+
+function evaluate(mode) {
+  let generalCorrect = 0, whoCorrect = 0, whenCorrect = 0, albumCorrect = 0;
+  generalFiled = document.getElementById("generalid");
+  for (let i = 2; i < generalFiled.children.length; i++) {
+    for (let j = 1; j < generalFiled.children[i].children.length; j++) {
+      let query = generalFiled.children[i].children[j];
+      if (query.firstChild.checked && query.firstChild.classList.contains("corectgeneral")) {
+        generalCorrect += 4;
+      }
+    }
+  }
+  whoFiled = document.getElementById("whoid");
+  for (let i = 2; i < whoFiled.children.length; i++) {
+    for (let j = 1; j < whoFiled.children[i].children.length; j++) {
+      let query = whoFiled.children[i].children[j];
+      if (query.firstChild.checked && query.firstChild.classList.contains("corectwho")) {
+        whoCorrect += 3;
+      }
+    }
+  }
+
+  whenField = document.getElementById("whenid");
+  for (let i = 2; i < whenField.children.length; i++) {
+    query = whenField.children[i].children[1];
+    if (query.children[1].value) {
+      let answer = parseInt(query.children[1].value);
+      let correct = parseInt(query.children[1].classList[0]);
+      if (Math.abs(correct - answer) <= 3) {
+        whenCorrect += 4 - Math.abs(correct - answer);
+      }
+    }
+  }
+
+  albumFiled = document.getElementById("albumid");
+  for (let i = 2; i < albumFiled.children.length; i++) {
+    query = albumFiled.children[i].children[1];
+    modified = query.value.replace(/ /g, '');
+    if (query.classList.contains(modified)) {
+      albumCorrect += 3;
+    }
+  }
+  showResults(generalCorrect, whenCorrect, whoCorrect, albumCorrect, mode);
+  document.getElementById("submit_quiz").remove();
 }
 
 function populateQuiz(hardMode) {  
-  let easy = 4, hard = 1;
+  let easy = 4, hard;
   if (hardMode) {
     easy = 2;
-    hard = 3;
   } 
+  hard = noQueries - easy;
   for (let i = 0; i < easy; i++) {
     generateQueryOfFirstType(easyGeneral, "general", true);
     generateQueryOfFirstType(easyWho, "who", false);
@@ -226,12 +482,32 @@ function populateQuiz(hardMode) {
   if (hardMode) {
     easy = 1;
   }
+  hard = noQueries - easy;
   for (let i = 0; i < easy; i++) {
-    generateQueryOfSecondType(easyWhen);
+    generateQueryOfSecondType(easyWhen, "when", i);
   }
   for (let i = 0; i < hard; i++) {
-    generateQueryOfSecondType(hardWhen);
+    generateQueryOfSecondType(hardWhen, "when", i);
   }
+  for (let i = 0; i < noQueries * 2; i++) {
+    generateQueryOfThirdType("alb", i);
+  }
+
+  form = document.getElementById("quiz");
+  button = document.createElement("input");
+  button.type = "submit";
+  button.value = "Evaluează!";
+  button.id = "submit_quiz";
+
+  form.appendChild(button);
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    mode = "Easy Mode";
+    if (hardMode) {
+      mode = "Hard Mode";
+    }
+    evaluate(mode);
+  });
 }
 
 window.onload = function() {
@@ -257,7 +533,7 @@ window.onload = function() {
     document.querySelectorAll('input[type="range"]').forEach(function(item) {
       item.style.backgorundColor = color;
     })
-    console.log(color);
+    document.getElementById("formdif").style.display = "none";
   });
 }
 
@@ -274,20 +550,25 @@ crearea și stergerea de elemente HTML:
   - remove in createQuiz
 folosirea a cel puțin unei metode din clasele: Math, Array, String, Date
   - String: in eventListener pentru submit la primul formlar, pentru a obtine prenumele
-  - Math: Math.Random(), Math.Floor() in generarea de intrebari
+  - Math: Math.Random(), Math.Floor() in generarea de intrebari, Math.abs() pentru raspunsuri la intrebari de tip an
   - Array: Array.from() - generez nuemrele de la 0 la N
+  - Date - getFullYear(), getMonth(), etc in updateTable();
 inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
   - functia de generare a query-urlor
 modificare de proprietăți
   - modificarea proprietaatilor ale unor obiecte JSON in functiile de generare de query-uri
 modificarea stilului unui element sau al unui grup de elemente:
   - modificarea culorii la radio-buttons si la range-uri in functie de dificultate
-
-folosirea și modificarea evenimentelor generate de mouse si tastatură
-folosirea setTimeout sau setInterval
+folosirea proprietăților classList, target sau currentTarget:
+  - folosirea classList pentru gasirea raspunsurilor corecte mai usor (in functiile generaateQueryOfFirstType() si generateQueryOfSecondType())
 folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
-folosirea a cel puțin unei metode din clasele: Math, Array, Date
+  - functia updateStorage(), tin minte cele mai bune rezultate
+folosirea setTimeout sau setInterval:
+  - cand afisez tabelul, apare prima data locul 1, dupa 2, dupa 3, etc, etc - in functia displayStandings()
+folosirea și modificarea evenimentelor generate de mouse si tastatură:
+  - la click-ul pe mouse se declanseasza un popup - in functia displayStandings() 
+  - la apasarea unei taste (1, 2, 3, 4, 5)  se afiseaza popul-ul pentru respectiva pozitie displayStandings
+
 schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
-folosirea proprietăților classList, target sau currentTarget
 folosirea metodelor getComputedStyle și stopPropagation
  */
