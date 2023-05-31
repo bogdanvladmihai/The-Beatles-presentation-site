@@ -322,8 +322,19 @@ function displayStandings(pos) {
 
     if (i == pos) {
       line.style.fontWeight= "bold";
+      for (let k = 0; k < 5; k++) {
+        setTimeout(function() {
+          while (true) {
+            let color = ["red", "blue", "yellow", "purple", "pink", "green"];
+            if (getComputedStyle(line).color != colors[Math.floor(Math.random() * color.length)]) {
+              line.style.borderColor = colors[Math.floor(Math.random() * color.length)];
+            }
+          }
+        }, 500);
+      }
     }
-    line.addEventListener("click", function() {
+    line.addEventListener("click", function(event) {
+      event.stopPropagation();
       genPopUp(standings, i);
     });
     setTimeout(function() {
@@ -568,7 +579,7 @@ folosirea setTimeout sau setInterval:
 folosirea și modificarea evenimentelor generate de mouse si tastatură:
   - la click-ul pe mouse se declanseasza un popup - in functia displayStandings() 
   - la apasarea unei taste (1, 2, 3, 4, 5)  se afiseaza popul-ul pentru respectiva pozitie displayStandings
-
-schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
-folosirea metodelor getComputedStyle și stopPropagation
+folosirea metodelor getComputedStyle și stopPropagation:
+  - in momentul in care dau click, dau stopPropagation
+  - getComputedStyle cand modific culoarea la border
  */
